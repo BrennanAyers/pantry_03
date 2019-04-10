@@ -17,6 +17,7 @@ class RecipeTest < Minitest::Test
   end
 
   def test_it_can_add_ingredients
+    assert_equal [], @recipe.ingredients
     @recipe.add_ingredient(@fish, 2)
 
     assert_equal [@fish], @recipe.ingredients

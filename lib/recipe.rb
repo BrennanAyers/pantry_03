@@ -23,4 +23,23 @@ class Recipe
       ingredient.calories * @ingredients[ingredient]
     end
   end
+
+  def ingredient_summary(ingredient)
+    {
+      ingredient: ingredient.name,
+      amount: self.quantity_of(ingredient).to_s + " " + ingredient.unit
+    }
+  end
+
+  def summary
+    {
+      name: self.name,
+      details: {
+        ingredients: self.ingredients.map do |ingredient|
+          ingredient_summary(ingredient)
+        end,
+        total_calories: self.total_calories
+      }
+    }
+  end
 end

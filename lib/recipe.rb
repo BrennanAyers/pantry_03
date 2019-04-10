@@ -13,4 +13,8 @@ class Recipe
   def ingredients
     @ingredients.keys
   end
+
+  def quantity_of(ingredient)
+    @ingredients[ingredient]
+  end
 end

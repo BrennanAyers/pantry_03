@@ -15,4 +15,10 @@ class RecipeTest < Minitest::Test
   def test_it_has_a_name
     assert_equal "Dinner", @recipe.name
   end
+
+  def test_it_can_add_ingredients
+    @recipe.add_ingredient(@fish, 2)
+
+    assert_equal [@fish], @recipe.ingredients
+  end
 end

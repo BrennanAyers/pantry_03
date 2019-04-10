@@ -22,4 +22,10 @@ class RecipeTest < Minitest::Test
 
     assert_equal [@fish], @recipe.ingredients
   end
+
+  def test_it_can_return_the_quantity_of_a_given_ingredient
+    @recipe.add_ingredient(@fish, 2)
+
+    assert_equal 2, @recipe.quantity_of(@fish)
+  end
 end

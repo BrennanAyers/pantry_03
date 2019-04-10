@@ -17,4 +17,10 @@ class Recipe
   def quantity_of(ingredient)
     @ingredients[ingredient]
   end
+
+  def total_calories
+    @ingredients.keys.sum do |ingredient|
+      ingredient.calories * @ingredients[ingredient]
+    end
+  end
 end

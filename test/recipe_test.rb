@@ -34,4 +34,11 @@ class RecipeTest < Minitest::Test
 
     assert_equal 200, @recipe.total_calories
   end
+
+  def test_it_returns_zero_if_the_ingredient_is_not_present
+    @recipe.add_ingredient(@fish, 2)
+    rice = Ingredient.new("Rice", "oz", 15)
+
+    assert_equal 0, @recipe.quantity_of(rice)
+  end
 end

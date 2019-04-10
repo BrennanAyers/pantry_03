@@ -15,7 +15,11 @@ class Recipe
   end
 
   def quantity_of(ingredient)
-    @ingredients[ingredient]
+    if ingredients.include?(ingredient)
+      @ingredients[ingredient]
+    else
+      0
+    end
   end
 
   def total_calories
@@ -35,9 +39,7 @@ class Recipe
     {
       name: self.name,
       details: {
-        ingredients: self.ingredients.map do |ingredient|
-          ingredient_summary(ingredient)
-        end,
+        ingredients: self.ingredients.map {|ingredient| ingredient_summary(ingredient)},
         total_calories: self.total_calories
       }
     }

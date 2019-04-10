@@ -39,9 +39,7 @@ class Recipe
     {
       name: self.name,
       details: {
-        ingredients: self.ingredients.map do |ingredient|
-          ingredient_summary(ingredient)
-        end,
+        ingredients: self.ingredients.map {|ingredient| ingredient_summary(ingredient)},
         total_calories: self.total_calories
       }
     }

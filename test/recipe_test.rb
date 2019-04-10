@@ -28,4 +28,10 @@ class RecipeTest < Minitest::Test
 
     assert_equal 2, @recipe.quantity_of(@fish)
   end
+
+  def test_it_can_return_the_total_calories
+    @recipe.add_ingredient(@fish, 2)
+
+    assert_equal 200, @recipe.total_calories
+  end
 end
